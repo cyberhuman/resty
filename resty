@@ -20,9 +20,12 @@ function resty() {
 
   if [ -n "$XDG_CONFIG_HOME" ]; then
     confdir="$XDG_CONFIG_HOME/resty"
-    datadir="$XDG_DATA_HOME/resty"
   else
     confdir="$HOME/.resty"
+  fi
+  if [ -n "$XDG_DATA_HOME" ]; then
+    datadir="$XDG_DATA_HOME/resty"
+  else
     datadir="$confdir"
   fi
   mkdir -p "$confdir"
